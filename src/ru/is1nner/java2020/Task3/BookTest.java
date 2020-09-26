@@ -5,7 +5,7 @@ import ru.is1nner.java2020.Task3.Book;
 public class BookTest {
 
     public static void main(String[] args) {
-        Book book = new Book("Fyodor Dostoevsky", "Crime and Punishment", 1866, "Novel", 237);
+        Book book = new Book("Stephen Hawking", "A Brief History of Time", 1988, "Literature", 185);
 
         System.out.println("Book before editing:\n" + book);
 
