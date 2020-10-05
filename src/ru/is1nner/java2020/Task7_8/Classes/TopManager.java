@@ -1,36 +1,37 @@
 package ru.is1nner.java2020.Task7_8.Classes;
-import ru.is1nner.java2020.Task7_8.Employee;
+import ru.is1nner.java2020.Task7_8.Company;
 import ru.is1nner.java2020.Task7_8.EmployeePosition;
-
-public class TopManager extends Employee implements EmployeePosition  {
-    public TopManager(String Name, String LastName) {
-        super(Name, LastName);
+import java.util.Random;
+public class TopManager implements EmployeePosition {
+    String jobName;
+    Company Cmp;
+    double salary;
+    int Pribil;
+    public TopManager(Company c) {
+        this.jobName = "Top manager";
+        Cmp = c;
+        Random rand = new Random();
+        Pribil = 115000 + rand.nextInt() % 140000;
     }
-    public double calcTopManagerSalary(double fullIncome, double baseSalary) {
-        if (fullIncome > 10000000) {
-            return baseSalary + 1.5 * baseSalary;
-        } else return baseSalary;
-
+    public int getPribil(){
+        return Pribil;
     }
-
-
     @Override
-    public int getIncome()
-    {
-        return 0;
+    public String getJobTitle() {
+        return jobName;
     }
-
-
-    @Override
-    public String getJobTitle()
-    {
-        return "TopManager";
+    public double getSalary() {
+        return salary;
     }
-
-
     @Override
-    public double calcSalary(double fullIncome, double baseSalary)
-    {
-        return calcTopManagerSalary(fullIncome, baseSalary);
+    public double calcSalary(double baseSalary){
+
+        if(Cmp.getIncome() > 10000000) {
+            salary = baseSalary + (Pribil * 1.5);
+            return salary;
+        }
+        else {
+            return baseSalary;
+        }
     }
 }
